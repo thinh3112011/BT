@@ -8,7 +8,7 @@ for i in n:
         dem = m[a:n.ing(i)]
         m.append(dem) 
         #a = n[int(n.index(i))+1]
-print(m)
+#print(m)
     
     
     #n = fi.read()
