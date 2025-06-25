@@ -1,0 +1,46 @@
+class ImageProcessor:
+    def __init__(self, inputText=""):
+        self.inputText = inputText
+
+    def process_feat1(self):
+        print("Feat 1: Đoạn văn bản bạn cần đọc có nội dung như sau:")
+
+    def process_feat2(self):
+        print("Feat 2: Bạn cần tìm vật gì?")
+
+    def process_feat3(self):
+        print("Feat 3: Khung cảnh trước mặt bạn là:")
+
+    def classify_input(self, text):
+        text_lower = text.lower()
+        if any(word in text_lower for word in ["dừng", "kết thúc", "thoát", "quit"]):
+            return "exit"
+        elif "đọc" in text_lower or "chụp" in text_lower:
+            return "feat1"
+        elif "tìm" in text_lower or "vật" in text_lower:
+            return "feat2"
+        elif "mô tả" in text_lower:
+            return "feat3"
+        else:
+            return "unknown"
+
+    def run_task(self):
+        while True:
+            self.inputText = input("Nhập yêu cầu của bạn: ")
+            result = self.classify_input(self.inputText)
+            if result == "exit":
+                print("Kết thúc chương trình.")
+                break
+            elif result == "feat1":
+                self.process_feat1()
+            elif result == "feat2":
+                self.process_feat2()
+            elif result == "feat3":
+                self.process_feat3()
+            else:
+                print("Tôi không nghe rõ. Vui lòng thử lại.")
+
+# Main chương trình
+if __name__ == "__main__":
+    image_processor = ImageProcessor()
+    image_processor.run_task()
